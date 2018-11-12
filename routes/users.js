@@ -28,6 +28,7 @@ router.post('/register', function (req, res) {
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
+	req.checkBody('username', 'Username must be at least 4 characters').not().min(4);
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
@@ -112,6 +113,32 @@ router.get('/logout', function (req, res) {
 	req.flash('success_msg', 'You are logged out');
 
 	res.redirect('/users/login');
+});
+
+// Adding Address Info
+router.post('./index', function (_req, res) {
+	var address = req.body.address;
+	var city = req.body.city;
+	var zipcode = req.body.zipcode;
+	var country = req.body.country;
+
+	// Validation
+	req.checkBody('address', 'Address Line is required').notEmpty();
+	req.checkBody('city', 'City is required').notEmpty();
+	req.checkBody('zipcode', 'Zip code is required').notEmpty();
+	req.checkBody('country', 'Country is required').notEmpty();
+
+	var errors = req.validationErrors();
+
+	if (errors){
+		res.render('index', {
+			errorrs: errorrs
+		});
+	}
+
+	else {
+
+	}
 });
 
 module.exports = router;

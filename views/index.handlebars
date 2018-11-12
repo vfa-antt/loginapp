@@ -1,2 +1,20 @@
- <h2 class="page-header">Profile</h2>
-<p>This is profile page.</p>  
+ <h2 class="page-header">Profile</h2> 
+<form method="POST" action="/users/address">
+<div class="form-group">
+    <label>Address Line</label>
+    <input type="text" class="form-control" name="address">
+  </div>
+  <div class="form-group">
+    <label>City</label>
+    <input type="text" class="form-control" name="city">
+  </div>
+   <div class="form-group">
+    <label>Zip code</label>
+    <input type="number" class="form-control" name="zipcode">
+  </div>
+  <div class="form-group">
+    <label>Country</label>
+    <input type="text" class="form-control"  name="country">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
