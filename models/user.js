@@ -1,24 +1,37 @@
 var mongoose = require('mongoose');
+var AddressEmbedded = require('./address');
 var bcrypt = require('bcryptjs');
+
 
 // User Schema
 var UserSchema = mongoose.Schema({
 	username: {
 		type: String,
-		min: 4,
-		max: 20,
+		unique: true,
+		required: true,
+		trim: true,
 		index:true
 	},
 	password: {
 		type: String,
-		min: 8
+		required: true
 	},
 	email: {
-		type: String
+		type: String,
+		unique: true,
+		required: true,
+		trim: true
 	},
 	name: {
-		type: String
+		type: String,
+		required: true,
+		trim: true
+	},
+
+	addresses: {
+		type: [AddressEmbedded]
 	}
+
 });
 
 var User = module.exports = mongoose.model('User', UserSchema);
@@ -48,3 +61,5 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	callback(null, isMatch);
 	});
 }
+// promise la gi su dung lam gi
+// async await la 
