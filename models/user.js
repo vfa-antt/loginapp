@@ -27,15 +27,10 @@ var UserSchema = mongoose.Schema({
 		required: true,
 		trim: true
 	},
-
-	addresses: {
-		type: [AddressEmbedded]
-	}
-
 });
 
-var User = module.exports = mongoose.model('User', UserSchema);
-
+const User = module.exports = mongoose.model('User', UserSchema);
+/*
 module.exports.createUser = function(newUser, callback){
 	bcrypt.genSalt(10, function(err, salt) {
 	    bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -60,6 +55,6 @@ module.exports.comparePassword = function(candidatePassword, hash, callback){
     	if(err) throw err;
     	callback(null, isMatch);
 	});
-}
+}*/
 // promise la gi su dung lam gi
 // async await la 

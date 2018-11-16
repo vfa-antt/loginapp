@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 #{author}
+  form(method='POST', action='/addresses/add')
+    #form-group
+      label Street Address:
+      input.form-control(name='streetaddress', type='text')
+    #form-group
+      label City:
+      input.form-control(name='city', type='text')
+    #form-group
+      label Country:
+      input.form-control(name='country', type='text')
+    #form-group
+      label Zipcode:
+      input.form-control(name='zipcode', type='text')
+    br
+    input.btn.btn-primary(type='submit',value='Submit')

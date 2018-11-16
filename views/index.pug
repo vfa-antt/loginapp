@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  ul.list-group
+    each address, i in addresses
+      li.list-group-item
+        a(href="/addresses/"+address._id)= address.streetaddress

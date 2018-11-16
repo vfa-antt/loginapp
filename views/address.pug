@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h5= address.streetaddress
+  h5= address.city
+  h5= address.country
+  p= address.zipcode
+  hr
+  if user
+    if user.id == address.author
+      a.btn.btn-default(href='/addresses/edit/'+address._id) Edit 
+      a.btn.btn-danger.delete-address(href='#',data-id=address._id) Delete

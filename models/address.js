@@ -5,23 +5,27 @@ var AddressEmbedded = mongoose.Schema({
 	streetaddress: {
 		type: String,
 		required: true,
-		trim: true,
+		
 	},
 	city: {
 		type: String,
-        required: true,
-        trim: true
+        required: true
+    
 	},
 	country: {
 		type: String,
 		required: true,
-		trim: true
+		
 	},
 	zipcode: {
 		type: String,
 		required: true,
-		trim: true
-	}
+		
+	},
+	author:{
+		type: String,
+		required: true,
+	  },
 });
 
-module.exports = AddressEmbedded;
+let Address = module.exports = mongoose.model('Address', AddressEmbedded);
