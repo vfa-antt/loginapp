@@ -1,12 +1,11 @@
 extends layout
 
 block content
+  h1= address.auhor
   h5= address.streetaddress
   h5= address.city
   h5= address.country
   p= address.zipcode
-  hr
-  if user
-    if user.id == address.author
-      a.btn.btn-default(href='/addresses/edit/'+address._id) Edit 
-      a.btn.btn-danger.delete-address(href='#',data-id=address._id) Delete
+  <hr/>
+        a.btn.btn-default(href='/addresses/edit/'+address._id) EditChưaĐươc
+        a.btn.btn-danger.delete-address(href='/addresses/delete/',data-id=address._id) DeleteChưaĐược
